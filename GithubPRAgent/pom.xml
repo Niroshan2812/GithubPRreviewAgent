@@ -10,7 +10,7 @@
     </parent>
     <groupId>org.niroshan</groupId>
     <artifactId>GithubPRAgent</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>GithubPRAgent</name>
     <description>GithubPRAgent</description>
     <url/>
