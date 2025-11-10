@@ -1,7 +1,6 @@
 package org.niroshan.githubpragent.Service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.validation.Payload;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -9,12 +8,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
-import reactor.core.publisher.Flux;
-
 
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.List;
 
 /*
@@ -85,9 +80,12 @@ public class GitHubReviewSearvice {
             // get review from LLM
             String review = getReviewFromLLM(diffContent);
 
+            /*
             System.out.println("Review Show case: "+review );
              System.out.println("Payload  Show case: "+ payload);
             System.out.println("Pull request diff_url: " + jsonNode.path("pull_request").path("diff_url"));
+             */
+
             // post the review back to GitHub
             GitHubComment comment = new GitHubComment("AI Review "+ review);
 
@@ -114,7 +112,7 @@ public class GitHubReviewSearvice {
 
     // call LLM API to get a code review
     private String getReviewFromLLM(String diff){
-        System.out.println("Gemini api Key " + geminiApiKey);
+      //  System.out.println("Gemini api Key " + geminiApiKey);
 
 
         String prompt = loadPromptTemplate("codeReviewPrompt.txt");
@@ -154,7 +152,7 @@ public class GitHubReviewSearvice {
 
         try{
             String reviewText = llmRespond.candidates().get(0).content().parts().get(0).text();
-            System.out.println("Review Show case: "+reviewText);
+            //System.out.println("Review Show case: "+reviewText);
             return reviewText;
         }catch (Exception e){
             e.printStackTrace();

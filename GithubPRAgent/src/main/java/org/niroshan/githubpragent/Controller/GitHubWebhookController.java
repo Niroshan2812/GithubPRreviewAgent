@@ -21,8 +21,8 @@ public class GitHubWebhookController {
     public void handleGithubWebhook(@RequestBody String payload,
                                     @RequestHeader("X-Hub-Signature-256")String signature) {
 
-        System.out.println("raw payload recived : "+ payload);
-        System.out.println("signature recived : "+ signature);
+        //System.out.println("raw payload recived : "+ payload);
+        //System.out.println("signature recived : "+ signature);
       // validate signature
         if(!webhookSecurityService.isValidSignature(payload, signature)) {
             System.out.println("Invalid signature");
