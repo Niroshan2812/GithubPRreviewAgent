@@ -2,7 +2,12 @@
 
 This is a Spring Boot application that acts as an automated code reviewer for your GitHub repositories. It listens for Pull Request (PR) webhooks, analyzes the code changes (the "diff") using the Google Gemini API, and posts the AI-generated review as a comment directly on the PR.
 
-## In here You can 😁
+<img width="625" height="557" alt="image" src="https://github.com/user-attachments/assets/4671b633-b51e-402f-bb21-b7de0277fb1a" />
+
+
+
+
+## In here You can 
 * Automated Code Reviews  
   - Triggers on Opend or Reopend Pull requessts.
 * AI powerd
@@ -119,9 +124,6 @@ You need to go to two different "Settings" pages
 
 That's it! Now, when you open a new PR in that repository, this application will receive the event, and you should see an AI-generated review appear as a comment
    
-
-<img width="625" height="557" alt="image" src="https://github.com/user-attachments/assets/4671b633-b51e-402f-bb21-b7de0277fb1a" />
-
 
 
 
